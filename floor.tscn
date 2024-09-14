@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://oan2awjmwqxw"]
+
+[ext_resource type="PackedScene" uid="uid://lq7r73igasgj" path="res://knight.tscn" id="1_o3l2g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b66ip"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xrmk"]
+size = Vector3(50, 0.5, 50)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_b66ip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_3xrmk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 18, 0)
+light_color = Color(0.850642, 0.881528, 0.96312, 1)
+shadow_enabled = true
+
+[node name="Knight" parent="." instance=ExtResource("1_o3l2g")]
